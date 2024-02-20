@@ -1,5 +1,9 @@
 # FlowCode
 
+**What's Changed?**
+
+Updated to opencv-4
+
 utilities to convert from .flo format (optical flow) to .exr format
 
 * flo2exr : convert .flo to .exr
