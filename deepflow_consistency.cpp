@@ -26,7 +26,7 @@ int main(int argc, char **argv)
         //dealing with filename
         char processname[200];
         sprintf(processname,"%s.%04d.%s",process_root,frame,ext);
-        process = cv::imread(processname,CV_LOAD_IMAGE_COLOR); 
+        process = cv::imread(processname,cv::IMREAD_COLOR); 
         char outputname[200];
         sprintf(outputname,"%s.%04d.%s",output_file_root,frame,ext);
         cout << "output : " << outputname << endl;
@@ -46,7 +46,7 @@ int main(int argc, char **argv)
             char consistencyname[200];
             sprintf(consistencyname,"%s_%04d_%04d.pgm",consistency_root,frame,frame-1);
             cout << "consistency : " << consistencyname << endl;
-            consistency = cv::imread(consistencyname, CV_LOAD_IMAGE_GRAYSCALE); 
+            consistency = cv::imread(consistencyname, cv::IMREAD_GRAYSCALE); 
             if(! consistency.data )                              // Check for invalid input
                 {
                 cout <<  "Could not open or find a consistency descriptor" << std::endl ;
@@ -56,7 +56,7 @@ int main(int argc, char **argv)
             char previousname[200];
             sprintf(previousname,"%s.%04d.%s",output_file_root,frame-1,ext);
             cout << "previousresult : " << previousname << endl;
-            previous = cv::imread(previousname,CV_LOAD_IMAGE_COLOR); 
+            previous = cv::imread(previousname, cv::IMREAD_COLOR); 
             //warp with optical flow
             warped.create( oflow.size(), CV_8UC3);
             mapx = cv::Mat::zeros(oflow.size(), CV_32FC1);

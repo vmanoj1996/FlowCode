@@ -90,7 +90,7 @@ int main( int argc, char** argv )
 
     //write result as .flow
     flow = exrTo2Channels(i1);
-    optflow::writeOpticalFlow(outputfile,flow);
+    cv::writeOpticalFlow(outputfile,flow);
     printf("writing flo file : %s\n",outputfile.c_str());
     
 }

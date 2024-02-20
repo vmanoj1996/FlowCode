@@ -68,8 +68,8 @@ Mat DrawFlow(Mat flow, Mat background, int flowcolor, int sampling, float vscale
             if (mag(val) > maxforce) {maxforce = mag(val);}
             if (!(i%sampling) && !(j%sampling)) {
                 if (mag(val) > motiontreshold) {
-                    circle(background,ratio*pos,1,Scalar(flowcolor,flowcolor,flowcolor),1,CV_AA);
-                    line(background,ratio*pos,(ratio*pos)+(ratio*val*vscale),Scalar(flowcolor,flowcolor,flowcolor),1,CV_AA);
+                    circle(background,ratio*pos,1,Scalar(flowcolor,flowcolor,flowcolor),1,LINE_AA);
+                    line(background,ratio*pos,(ratio*pos)+(ratio*val*vscale),Scalar(flowcolor,flowcolor,flowcolor),1,LINE_AA);
                     }
             }
         }
@@ -109,7 +109,7 @@ int main(int argc, const char* argv[])
         background = flowToDisplay(flow);
         }
     if (ext == "flo") {
-        flow = optflow::readOpticalFlow(image_in_name+"."+ext);
+        flow = cv::readOpticalFlow(image_in_name+"."+ext);
         cout << "reading : " << image_in_name << "." << ext << endl;
         int width =flow.cols;
         int height=flow.rows;

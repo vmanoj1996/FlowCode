@@ -64,7 +64,7 @@ int main( int argc, char** argv )
     }
     
     Mat_<Point2f> flow;
-    flow = optflow::readOpticalFlow(inputfile);
+    flow = cv::readOpticalFlow(inputfile);
     
     if ( !flow.data )
     {

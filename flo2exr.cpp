@@ -64,7 +64,7 @@ int main( int argc, char** argv )
     }
     
     Mat_<Point2f> flow;
-    flow = optflow::readOpticalFlow(inputfile);
+    flow = cv::readOpticalFlow(inputfile);
     
     if ( !flow.data )
     {
@@ -74,7 +74,7 @@ int main( int argc, char** argv )
         
     //write result as .exr
     Mat flow_3chan = flowTo3Channels(flow);
-    cv::cvtColor(flow_3chan, flow_3chan, CV_BGR2RGB);
+    cv::cvtColor(flow_3chan, flow_3chan, cv::COLOR_BGR2RGB);
     cv::imwrite(outputfile, flow_3chan);
     printf("writing exr file : %s\n",outputfile.c_str());
     

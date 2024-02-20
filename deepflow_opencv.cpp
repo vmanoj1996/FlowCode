@@ -147,13 +147,13 @@ int main( int argc, char** argv )
     if (useExr) {
     //write result as .exr
     Mat flow_3chan = flowTo3Channels(flow);
-    cv::cvtColor(flow_3chan, flow_3chan, CV_BGR2RGB);
+    cv::cvtColor(flow_3chan, flow_3chan, cv::COLOR_BGR2RGB);
     cv::imwrite(outputfile, flow_3chan);
     printf("writing exr file : %s\n",outputfile.c_str());
     }
     else {
     //write result as .flow
-    optflow::writeOpticalFlow(outputfile,flow);
+    cv::writeOpticalFlow(outputfile,flow);
     printf("writing flo file : %s\n",outputfile.c_str());
     }
     
